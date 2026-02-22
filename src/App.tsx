@@ -26,6 +26,7 @@ function App() {
   const [deviceMatrixUser, setDeviceMatrixUser] = useState<
     MatrixUser | undefined
   >();
+  const [users, setUsers] = useState<[]>([]);
 
   useEffect(() => {
     const user = loadUser();
@@ -50,7 +51,11 @@ function App() {
 
   return (
     <>
-      <h1>Presense</h1>
+      <section id="purple"></section>
+      <section id="orange"></section>
+      <section id="blue"></section>
+      <section id="green"></section>
+      <div id="me" className="online" />
     </>
   );
 }
