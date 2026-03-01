@@ -47,10 +47,8 @@ function App() {
   const [deviceMatrixUser, setDeviceMatrixUser] = useState<
     MatrixUser | undefined
   >();
-  const [users, setUsers] = useState<[]>([]);
+  // const [users, setUsers] = useState<[]>([]);
   const [zone, setZone] = useState<number | undefined>();
-
-  console.log(zone)
 
   useEffect(() => {
     const user = loadUser();
@@ -97,7 +95,6 @@ function App() {
       <section id="green" onClick={() => setZone(3)}></section>
       <div id="me" className="online" style={getStyleByZone(zone)} />
       <button id="centre" onClick={() => setZone(undefined)}></button>
-      <p style={{ display: "none" }} onClick={() => { setUsers([]) }}>{users.map(user => `${user}`)}</p>
       <audio preload="auto" src="pink.mp3"></audio>
       <audio preload="auto" src="orange.mp3"></audio>
       <audio preload="auto" src="blue.mp3"></audio>
