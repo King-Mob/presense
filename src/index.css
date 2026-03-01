@@ -87,19 +87,19 @@ section {
 }
 
 #purple {
-  background-image: url("./purple_zone.png");
+  background-image: url("/purple_zone.png");
 }
 
 #orange {
-  background-image: url("./orange_zone.png");
+  background-image: url("/orange_zone.png");
 }
 
 #blue {
-  background-image: url("./blue_zone.png");
+  background-image: url("/blue_zone.png");
 }
 
 #green {
-  background-image: url("./green_zone.png");
+  background-image: url("/green_zone.png");
 }
 
 #me {
