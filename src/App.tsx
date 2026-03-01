@@ -22,11 +22,35 @@ async function registerUser() {
   return user;
 }
 
+function getStyleByZone(zone: number | undefined) {
+  if (zone === undefined)
+    return {};
+
+  const styles = [{
+    left: "25%",
+    top: "25%"
+  }, {
+    left: "75%",
+    top: "25%"
+  }, {
+    left: "25%",
+    top: "75%"
+  }, {
+    left: "75%",
+    top: "75%"
+  }]
+
+  return styles[zone];
+}
+
 function App() {
   const [deviceMatrixUser, setDeviceMatrixUser] = useState<
     MatrixUser | undefined
   >();
   const [users, setUsers] = useState<[]>([]);
+  const [zone, setZone] = useState<number | undefined>();
+
+  console.log(zone)
 
   useEffect(() => {
     const user = loadUser();
@@ -51,12 +75,14 @@ function App() {
 
   return (
     <>
-      <section id="purple"></section>
-      <section id="orange"></section>
-      <section id="blue"></section>
-      <section id="green"></section>
-      <div id="me" className="online" />
+      <section id="purple" onClick={() => setZone(0)}></section>
+      <section id="orange" onClick={() => setZone(1)}></section>
+      <section id="blue" onClick={() => setZone(2)}></section>
+      <section id="green" onClick={() => setZone(3)}></section>
+      <div id="me" className="online" style={getStyleByZone(zone)} />
+      <button id="centre" onClick={() => setZone(undefined)}></button>
       <p onClick={() => { setUsers([]) }}>{users.map(user => `${user}`)}</p>
+
     </>
   );
 }
