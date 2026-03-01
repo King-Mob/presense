@@ -73,6 +73,22 @@ function App() {
     console.log("get that syncing feeling");
   }
 
+  useEffect(() => {
+    const audio = new Audio();
+
+    if (zone === undefined)
+      return;
+
+    const tones = ["pink.mp3", "orange.mp3", "blue.mp3", "green.mp3"];
+
+    audio.src = tones[zone];
+    audio.play();
+    audio.loop = true;
+
+    return () => { audio.pause() }
+  }
+    , [zone])
+
   return (
     <>
       <section id="purple" onClick={() => setZone(0)}></section>
@@ -81,7 +97,7 @@ function App() {
       <section id="green" onClick={() => setZone(3)}></section>
       <div id="me" className="online" style={getStyleByZone(zone)} />
       <button id="centre" onClick={() => setZone(undefined)}></button>
-      <p onClick={() => { setUsers([]) }}>{users.map(user => `${user}`)}</p>
+      <p style={{ display: "none" }} onClick={() => { setUsers([]) }}>{users.map(user => `${user}`)}</p>
 
     </>
   );
