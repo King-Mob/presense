@@ -56,6 +56,7 @@ function App() {
       <section id="blue"></section>
       <section id="green"></section>
       <div id="me" className="online" />
+      <p onClick={() => { setUsers([]) }}>{users.map(user => `${user}`)}</p>
     </>
   );
 }
