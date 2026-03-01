@@ -98,7 +98,10 @@ function App() {
       <div id="me" className="online" style={getStyleByZone(zone)} />
       <button id="centre" onClick={() => setZone(undefined)}></button>
       <p style={{ display: "none" }} onClick={() => { setUsers([]) }}>{users.map(user => `${user}`)}</p>
-
+      <audio preload="auto" src="pink.mp3"></audio>
+      <audio preload="auto" src="orange.mp3"></audio>
+      <audio preload="auto" src="blue.mp3"></audio>
+      <audio preload="auto" src="green.mp3"></audio>
     </>
   );
 }
